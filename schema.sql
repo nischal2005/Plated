@@ -184,7 +184,7 @@ CREATE INDEX idx_recipes_user_created  ON recipes(user_id, created_at DESC);
 -- show me all journal posts by user X, newest first (Useful for profile page)
 CREATE INDEX idx_journals_user_created ON journal_posts(user_id, created_at DESC);
 
---sort recipes by view_count ("Popular Recipes List")
+-- sort recipes by view_count ("Popular Recipes List")
 CREATE INDEX idx_recipes_views         ON recipes(view_count DESC);
 
 -- When user searches by tag
