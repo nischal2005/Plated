@@ -16,6 +16,7 @@ document.getElementById("mealPhoto").addEventListener("change", function() {
         document.getElementById("previewImg").src = URL.createObjectURL(file);
         document.getElementById("previewImg").style.display = "block";
         document.querySelector(".upload-overlay").style.display = "none";
+        document.querySelector(".upload-card").classList.add("has-image");
     }
 });
 
@@ -134,6 +135,12 @@ function drawTags() {
         tagItem.className = "tag";
         tagItem.innerHTML = tags[i] + ' <span class="remove" data-i="' + i + '">×</span>';
         box.insertBefore(tagItem, input);
+    }
+    // hide placeholder when tags exist, show it when empty
+    if (tags.length > 0) {
+        input.placeholder = "";
+    } else {
+    input.placeholder = "e.g healthy, homemade";
     }
 }
 

@@ -1,4 +1,4 @@
-/* css for meal page! */
+/* css for recipe page! */
 body {
     background-color: bisque;
     font-family: Helvetica, sans-serif;
@@ -9,7 +9,7 @@ body {
     justify-content: center;
 }
 
-.meal-card {
+.recipe-card {
     width: 780px;
     max-width: calc(100vw - 40px);
     background: #fffcfc;
@@ -36,7 +36,7 @@ body {
     border-bottom: 1px solid #e8e2d8;
 }
 
-.meal-title { 
+.recipe-title { 
     font-size: 22px;
     margin: 0; 
 }
@@ -55,7 +55,7 @@ body {
     display: flex;
 }
 
-.meal-photo { 
+.recipe-photo { 
     padding: 20px 8px 20px 20px;
     flex-shrink: 0; 
 }
@@ -98,9 +98,8 @@ body {
     filter: brightness(1.15); 
     transform: scale(1.05);
 }
-/* will now have no green outline over photo if user hovers over */
-.upload-card:not(.has-image):hover{
-    border: 2px solid #76c83c;
+.upload-card:not(.has-image):hover {
+    border: 2px solid #76c83c; 
 }
 .upload-card:hover .upload-overlay { 
     transform: scale(1.05); 
@@ -111,11 +110,11 @@ body {
     filter: brightness(1.05);
 }
 
-#mealPhoto { 
+#recipePhoto { 
     display: none; 
 }
 
-.meal-right { 
+.recipe-right { 
     flex: 1; 
     padding: 20px 24px 0 16px; 
 }
@@ -171,7 +170,7 @@ body {
     cursor: pointer; 
 }
 
-#mealTitle {
+#recipeTitle {
     width: 60%;
     padding: 10px 12px;
     margin-bottom: 8px;
@@ -205,8 +204,7 @@ textarea {
     margin: 14px -24px 0 -210px;
     border-top: 1px solid #d4cec3;
 }
-
-.pltfooter-label {
+.footer-label {
     font-size: 11px;
     font-weight: 700;
     color: #666;
@@ -257,50 +255,10 @@ textarea {
     color:white;
  }
 
-.pltrating-col {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-left: auto;
-}
-
-.pltrating-row {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-#pltratingClear {
-    font-size: 16px;
-    color: #888;
-    cursor: pointer;
-    display: none;
-}
-#pltratingClear:hover {
-    color: #333;
-}
-
-#pltratingText {
-    font-size: 12px;
-    color: #666;
-    min-width: 48px;
-}
-
-#pltratingBox { 
-    display: flex;
-    gap: 3px;
-}
-
-#pltratingBox img {
-    width: 32px;
-    cursor: pointer;
-    transition: opacity 0.1s;
-    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.2));
-}
 
 button {
     padding: 8px 20px;
-    background: #76c83c;
+    background: #a6d584;
     color: white;
     border: none;
     border-radius: 6px;
@@ -308,20 +266,26 @@ button {
     font-family: inherit;
     font-weight: 700;
     cursor: pointer;
+    margin-left: auto;
     align-self: flex-end;
     box-shadow: 0 2px 12px rgba(0,0,0,0.15);
 }
 button:hover { 
-    background: #76c83cbc;
- }
+    background: #86ad6b; 
+}
 
  .tag-hint {
     font-size: 10px;
     color: #999;
-    margin: 0 0 4px 0;
- }
- .tag-col {
+    margin: 0;
+}
+.tag-col{
     display: flex;
     flex-direction: column;
     gap: 2px;
- }
+}
+.tag-top{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

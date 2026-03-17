@@ -14,7 +14,7 @@ nav {
     background: #3c362ecb ;
     width: 100%;
     padding: 0px 5%;
-    height: 60px;
+    height: 75px;
     display: flex;
     align-items: stretch;
     justify-content: flex-start;
@@ -38,12 +38,15 @@ nav {
     flex-shrink: 0;
 }
 .logo {
-    width: 32px;
+    width: 34px;
+}
+.logo:hover {
+    cursor: pointer;
 }
 
 .logo-name {
 color:#fff;
-font-size: 20px;
+font-size: 21px;
 font-weight: 700;
 letter-spacing: 0.5px;
 white-space: nowrap; 
@@ -86,7 +89,7 @@ nav ul li a {
     transition: background 0.2s;
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 15px;
     white-space: nowrap;
 }
 nav ul li a:hover {
