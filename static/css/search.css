@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #f7f2e6;
+    color: #111;
+}
+
+.search-page {
+    min-height: 100vh;
+    padding: 70px 70px 50px 70px;
+    box-sizing: border-box;
+}
+
+.search-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 90px;
+}
+
+/* left side */
+.results-section {
+    flex: 1;
+    min-width: 0;
+}
+
+.results-row {
+    display: flex;
+    gap: 58px;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+}
+
+.recipe-card {
+    width: 150px;
+    height: 190px;
+    border: 3px solid #7b6d59;
+    background-color: #d9d9d9;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.recipe-card:hover {
+    border: 3px solid #111;
+    transform: scale(1.03);
+    cursor: pointer;
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* right side */
+.filters-section {
+    width: 300px;
+    flex-shrink: 0;
+}
+
+.filters-section h2 {
+    font-size: 34px;
+    font-weight: 400;
+    margin: 0 0 24px 0;
+}
+
+.filter-group {
+    margin-bottom: 18px;
+}
+
+.filter-toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    font-size: 22px;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #111;
+}
+
+.arrow {
+    display: inline-block;
+    font-size: 20px;
+    transition: transform 0.2s ease;
+}
+
+.filter-group.open .arrow {
+    transform: rotate(90deg);
+}
+
+.filter-options {
+    display: none;
+    padding-left: 30px;
+    margin-top: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.filter-group.open .filter-options {
+    display: flex;
+}
+
+.filter-options label {
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.filter-options input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #a6d584;
+    cursor: pointer;
+}
+
+@media (max-width: 1200px) {
+    .search-layout {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .results-row {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .filters-section {
+        width: 100%;
+    }
+}

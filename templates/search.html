@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" href="/static/css/search.css">
+</head>
+<body>
+<main class="search-page">
+    <div class="search-layout">
+
+        <section class="results-section">
+            <div class="results-row">
+                <div class="recipe-card">
+                    <img src="https://placehold.co/180x240" alt="Recipe 1">
+                </div>
+
+                <div class="recipe-card">
+                    <img src="https://placehold.co/180x240" alt="Recipe 2">
+                </div>
+
+                <div class="recipe-card">
+                    <img src="https://placehold.co/180x240" alt="Recipe 3">
+                </div>
+
+                <div class="recipe-card">
+                    <img src="https://placehold.co/180x240" alt="Recipe 4">
+                </div>
+            </div>
+        </section>
+
+        <aside class="filters-section">
+            <h2>Filters:</h2>
+
+            <div class="filter-group">
+                <button class="filter-toggle" type="button">
+                    <span class="arrow">&gt;</span>
+                    Dietary preference
+                </button>
+                <div class="filter-options">
+                    <label><input type="checkbox"> Vegetarian</label>
+                    <label><input type="checkbox"> Pescatarian</label>
+                    <label><input type="checkbox"> Lactose intolerant</label>
+                    <label><input type="checkbox"> Nut-free</label>
+                    <label><input type="checkbox"> Gluten-free</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-toggle" type="button">
+                    <span class="arrow">&gt;</span>
+                    Cook time
+                </button>
+                <div class="filter-options">
+                    <label><input type="checkbox"> Under 15 min</label>
+                    <label><input type="checkbox"> Under 30 min</label>
+                    <label><input type="checkbox"> Under 1 hour</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-toggle" type="button">
+                    <span class="arrow">&gt;</span>
+                    Meal type
+                </button>
+                <div class="filter-options">
+                    <label><input type="checkbox"> Breakfast</label>
+                    <label><input type="checkbox"> Lunch</label>
+                    <label><input type="checkbox"> Dinner</label>
+                    <label><input type="checkbox"> Dessert</label>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <button class="filter-toggle" type="button">
+                    <span class="arrow">&gt;</span>
+                    Rating
+                </button>
+                <div class="filter-options">
+                    <label><input type="checkbox"> 4+ plates</label>
+                    <label><input type="checkbox"> 3+ plates</label>
+                    <label><input type="checkbox"> 2+ plates</label>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+</main>
+
+<script src="/static/js/search.js"></script>
+</body>
+</html>
