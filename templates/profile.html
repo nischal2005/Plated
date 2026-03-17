@@ -3,9 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="/static/css/profile.css" />
 </head>
 <body>
-    
+    <main class = "profile-page">
+        <section class = "left-content">
+            <div class = "profile-card">
+                <img
+                class="profile-pic"
+                src="https://placehold.co/120x120"
+                alt="Profile picture"
+                />
+
+                <div class = "profile-info">
+                    <h1 class = "username"> username </h1>
+                    <div class = "stats">
+                        <div class = "stat">
+                            <span class = "stat-number"> 9 </span>
+                            <span class = "stat-label"> followers </span>
+                        </div>
+                        <div class = "stat">
+                            <span class = "stat-number"> 99 </span>
+                            <span class = "stat-label"> following </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class = "content-section">
+                <div class = "section-header">
+                    <h2> Favorites </h2>
+                    <div class = "section-line"></div>
+                </div>
+                <div class = "card-row">
+                    <img src="https://placehold.co/220x300" alt="Favorite 1" class="post-card" />
+                    <img src="https://placehold.co/220x300" alt="Favorite 2" class="post-card" />
+                    <img src="https://placehold.co/220x300" alt="Favorite 3" class="post-card" />
+                    <img src="https://placehold.co/220x300" alt="Favorite 4" class="post-card" />
+                </div>
+            </section>
+
+            <section class = "content-section">
+                <div class = "section-header">
+                    <h2> Recently </h2>
+                    <div class = "section-line"></div>
+                </div>
+                <div class = "card-row">
+                    <img src="https://placehold.co/220x300" alt="Recent 1" class="post-card" />
+                    <img src="https://placehold.co/220x300" alt="Recent 2" class="post-card" />
+                    <img src="https://placehold.co/220x300" alt="Recent 3" class="post-card" />
+                    <img src="https://placehold.co/220x300" alt="Recent 4" class="post-card" />
+                </div>
+            </section>
+        </section>
+
+        <aside class = "right-content">
+            <div class="featured-box">
+                <img
+                src="https://placehold.co/360x420"
+                alt="Featured post"
+                class="featured-image"
+                />
+            </div>
+        </aside>
+    </main>
 </body>
 </html>
