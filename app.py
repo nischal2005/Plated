@@ -64,6 +64,15 @@ def is_following(follower_id, following_id):
     finally:
         db.close()
 
+def get_all_users():
+    db = get_db()
+    try:
+        with db.cursor() as cursor:
+            cursor.execute('SELECT user_id, username, email FROM users')
+            return cursor.fetchall()
+    finally:
+        db.close()
+
 @app.route('/')
 def landing():
     return render_template('landing.html')
@@ -86,10 +95,53 @@ def profile():
 
     return render_template(
         'profile.html',
-        user = user,
-        follower_count = follower_count,
-        following_count = following_count
+        user=user,
+        follower_count=follower_count,
+        following_count=following_count,
+        current_user_id=user_id,
+        following_status=False
     )
+
+@app.route('/profile/<int:user_id>')
+def view_profile(user_id):
+    current_user_id = session.get('user_id')
+
+    if not current_user_id:
+        flash('Please log in first.')
+        return redirect(url_for('login'))
+    
+    user = get_user_by_id(user_id)
+
+    if user is None:
+        flash('User not found.')
+        return redirect(url_for('home'))
+
+    follower_count = get_follower_count(user_id)
+    following_count = get_following_count(user_id)
+
+    following_status = False
+    if current_user_id != user_id:
+        following_status = is_following(current_user_id, user_id)
+    
+    return render_template(
+        'profile.html',
+        user=user,
+        follower_count=follower_count,
+        following_count=following_count, 
+        current_user_id=current_user_id,
+        following_status=following_status
+    )
+
+@app.route('/users')
+def users():
+    current_user_id = session.get('user_id')
+
+    if not current_user_id:
+        flash('Please log in first.')
+        return redirect(url_for('login'))
+
+    all_users = get_all_users()
+    return render_template('users.html', users=all_users, current_user_id=current_user_id)
 
 @app.route('/recipes')
 def recipe_page():
@@ -169,6 +221,55 @@ def login():
     session['user_id'] = user['user_id']
     return redirect(url_for('home'))
 
+@app.route('/follow/<int:user_id>', methods=['POST'])
+def follow_user(user_id):
+    current_user_id = session.get('user_id')
+
+    if not current_user_id:
+        flash('Please log in first.')
+        return redirect(url_for('login'))
+    
+    if current_user_id == user_id:
+        flash('You cannot follow yourself.')
+        return redirect(url_for('view_profile', user_id = user_id))
+
+    db = get_db()
+    try:
+        with db.cursor() as cursor:
+            cursor.execute(
+                '''
+                INSERT IGNORE INTO follows (follower_id, following_id)
+                VALUES (%s, %s)
+                ''',
+                (current_user_id, user_id)
+            )
+        db.commit()
+    finally:
+        db.close()
+    return redirect(url_for('view_profile', user_id=user_id))
+
+@app.route('/unfollow/<int:user_id>', methods=['POST'])
+def unfollow_user(user_id):
+    current_user_id = session.get('user_id')
+
+    if not current_user_id:
+        flash('Please log in first.')
+        return redirect(url_for('login'))
+    
+    db = get_db()
+    try:
+        with db.cursor() as cursor:
+            cursor.execute(
+                '''
+                DELETE FROM follows
+                WHERE follower_id = %s AND following_id = %s
+                ''',
+                (current_user_id, user_id)
+            )
+        db.commit()
+    finally:
+        db.close()
+    return redirect(url_for('view_profile', user_id=user_id))
 
 @app.route('/logout')
 def logout():

@@ -29,6 +29,17 @@
                             <span class = "stat-label"> following </span>
                         </div>
                     </div>
+                    {% if current_user_id != user.user_id %}
+                        {% if following_status %}
+                            <form action = "{{ url_for('unfollow_user', user_id = user.user_id) }}" method = "POST">
+                                <button type="submit" class="follow-btn following"> Following </button>
+                            </form>
+                        {% else %}
+                            <form action = "{{ url_for('follow_user', user_id = user.user_id) }}" method = "POST">
+                                <button type="submit" class="follow-btn"> Follow </button>
+                            </form>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
             <section class="content-section">

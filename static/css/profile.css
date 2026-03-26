@@ -195,6 +195,26 @@ body {
     transform: scale(1.1);
 }
 
+.follow-btn {
+    margin-top: 14px;
+    padding: 8px 18px;
+    border: none;
+    border-radius: 20px;
+    background-color: #5e7e3d;
+    color: white;
+    font-size: 14px;
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.follow-btn:hover {
+    opacity: 0.9;
+}
+
+.follow-btn.following {
+    background-color: #8b857d;
+}
+
 .popup-text{
     font-size: 10px;
     color: #2e2e2e;
